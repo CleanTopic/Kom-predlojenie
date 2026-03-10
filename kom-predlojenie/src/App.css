@@ -31,3 +31,14 @@
     flex-direction: column;
     gap: 20px;
 }
+
+.page_Items {
+    padding: 0 40px; 
+}
+
+.page__Header-item { 
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    border: 1px;
+}
