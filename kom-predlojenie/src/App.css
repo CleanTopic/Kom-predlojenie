@@ -33,12 +33,27 @@
 }
 
 .page_Items {
-    padding: 0 40px; 
+    width: 100%;
+    border-collapse: collapse;
+    page-break-inside: avoid;
+    font-size: 14px;
 }
 
-.page__Header-item { 
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    border: 1px;
+.page_Items th,
+.page_Items td {
+    border: 1px solid #444;
+    padding: 10px 14px;
+    text-align: left;
+}
+
+.page_Items thead {
+    border-bottom: 2px solid #000;
+}
+
+.page_Items tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.page_Items tbody tr:last-child {
+    border-bottom: none;
 }

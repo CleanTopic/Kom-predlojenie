@@ -23,26 +23,28 @@ const Page1 = () => {
             </div>
 
             <table className="page_Items">
-                
+
                 <thead>
-                    <tr className="page_Items-header">
-                        <th className="page__Header-item">Заголовок 1</th>
-                        <th className="page__Header-item">Заголовок 2</th>
-                        <th className="page__Header-item">Заголовок 3</th>
-                        <th className="page__Header-item">Заголовок 4</th>
-                        <th className="page__Header-item">Заголовок 5</th>
-                        <th className="page__Header-item">Заголовок 6</th>
+                    <tr>
+                        <th>№</th>
+                        <th>Наименование позиции</th>
+                        <th>Количество</th>
+                        <th>Цена</th>
+                        <th>% скидки</th>
+                        <th>Сумма скидки</th>
+                        <th>Ваша цена</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr className="page_Items-row">
-                        <td className="page__Item">Значение 1</td>
-                        <td className="page__Item">Значение 2</td>
-                        <td className="page__Item">Значение 3</td>
-                        <td className="page__Item">Значение 4</td>
-                        <td className="page__Item">Значение 5</td>
-                        <td className="page__Item">Значение 6</td>
+                    <tr>
+                        <td>Значение 1</td>
+                        <td>Значение 2</td>
+                        <td>Значение 3</td>
+                        <td>Значение 4</td>
+                        <td>Значение 5</td>
+                        <td>Значение 6</td>
+                        <td>Значение 7</td>
                     </tr>
                 </tbody>
 
