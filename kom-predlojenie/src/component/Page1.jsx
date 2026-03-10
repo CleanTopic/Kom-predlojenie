@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Page1 = () => {
+const Page1 = (props) => {
 
     return (
         <div className="pdfPage">
@@ -37,19 +37,24 @@ const Page1 = () => {
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>Значение 1</td>
-                        <td>Значение 2</td>
-                        <td>Значение 3</td>
-                        <td>Значение 4</td>
-                        <td>Значение 5</td>
-                        <td>Значение 6</td>
-                        <td>Значение 7</td>
-                    </tr>
+                    {props.items.map((item) => (
+                        <tr key={item.id}>
+                            <td>{item.id}</td>
+                            <td>{item.name}</td>
+                            <td>{item.quantity}</td>
+                            <td>{item.price}</td>
+                            <td>{item.discountPercent}</td>
+                            <td>{item.discountAmount}</td>
+                            <td>{item.finalPrice}</td>
+                        </tr>
+                    ))}
                 </tbody>
 
             </table>
 
+            <div className="page__Total">
+                <strong>Итого:</strong> {props.total.quantity} позиция на сумму <span>{props.total.price}₽</span> {props.total.finalPrice}₽.
+            </div>
         </div>
     );
 
