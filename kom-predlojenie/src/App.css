@@ -6,10 +6,11 @@
 
 .pdfPage {
     width: 794px;
-    height: 1123px;
+    min-height: 1123px;
     margin: 0 auto;
     padding: 60px;
     box-sizing: border-box;
+    page-break-after: always;
 
     background-image: url("./assets/Page_lining.jpg");
     background-size: cover;
@@ -35,9 +36,10 @@
 .page_Items {
     width: 100%;
     border-collapse: collapse;
-    page-break-inside: avoid;
+    page-break-inside: auto;
     font-size: 14px;
 }
+
 
 .page_Items th,
 .page_Items td {
@@ -48,10 +50,18 @@
 
 .page_Items thead {
     border-bottom: 2px solid #000;
+    display: table-header-group;
 }
+
+.page_Items tfoot {
+    display: table-footer-group;
+}
+
 
 .page_Items tbody tr {
     border-bottom: 1px solid #ddd;
+    page-break-inside: avoid;
+    page-break-after: auto;
 }
 
 .page_Items tbody tr:last-child {

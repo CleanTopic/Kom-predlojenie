@@ -37,23 +37,30 @@ const Page1 = (props) => {
                 </thead>
 
                 <tbody>
-                    {props.items.map((item) => (
-                        <tr key={item.id}>
-                            <td>{item.id}</td>
-                            <td>{item.name}</td>
-                            <td>{item.quantity}</td>
-                            <td>{item.price}</td>
-                            <td>{item.discountPercent}</td>
-                            <td>{item.discountAmount}</td>
-                            <td>{item.finalPrice}</td>
-                        </tr>
-                    ))}
+                    <>
+                        {props.items.map((item) => (
+                            <tr key={item.id}>
+                                <td>{item.id}</td>
+                                <td>{item.name}</td>
+                                <td>{item.quantity}</td>
+                                <td>{item.price}</td>
+                                <td>{item.discountPercent}</td>
+                                <td>{item.discountAmount}</td>
+                                <td>{item.finalPrice}</td>
+                            </tr>
+                        ))}
+                    </>
                 </tbody>
 
             </table>
 
-            <div className="page__Total">
-                <strong>Итого:</strong> {props.total.quantity} позиция на сумму <span>{props.total.price}₽</span> {props.total.finalPrice}₽.
+            <div className="page_ander">
+                <div className="page__Total">
+                    <strong>Итого:</strong> {props.total.quantity} позиция на сумму <span>{props.total.price}₽</span> {props.total.finalPrice}₽.
+                </div>
+
+                <p>Цена по данному коммерческому предложению актуальна в течении трех рабочих дней.</p>
+                <p>Просим вас ознакомиться до <span className="page_dateAt">{props.total.lastDayOffer}</span></p>
             </div>
         </div>
     );
