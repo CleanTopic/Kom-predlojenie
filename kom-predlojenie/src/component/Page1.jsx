@@ -1,12 +1,11 @@
 import React from "react";
 
 
-const page = (props) => {
+const Page1 = () => {
 
     return (
-        <div>
-            <img src="./assest/Page_lining.svg" alt="" />
-
+        <div className="pdfPage">
+   
             <h1 className="page__Title">
                 Коммерческое предложение
             </h1>
@@ -29,4 +28,4 @@ const page = (props) => {
 };
 
 
-export default page;
+export default Page1;

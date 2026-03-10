@@ -1,0 +1,25 @@
+* {
+    font-size: 12px;
+    font-family: 'Calibri', sans-serif;
+}
+
+
+.pdfPage {
+    width: 794px;   
+    height: 1123px; 
+    margin: 0 auto;
+    padding: 60px;
+    box-sizing: border-box;
+
+    background-image: url("./assets/Page_lining.jpg");
+    background-size: cover;
+}
+
+.page__Title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 120px;
+    color: #BAD701;
+}
