@@ -5,8 +5,8 @@
 
 
 .pdfPage {
-    width: 794px;
-    min-height: 1123px;
+    width: 210mm;
+    min-height: 297mm;
     margin: 0 auto;
     padding: 60px;
     box-sizing: border-box;
@@ -82,4 +82,13 @@
             red 48%,
             red 52%,
             transparent 53%);
+}
+
+.page_ander {
+    padding: 0 40px;
+}
+
+.page_ander span {
+    display: inline-block;
+    color: #BAD701;
 }
