@@ -3,17 +3,19 @@
     font-family: 'Calibri', sans-serif;
 }
 
-
 .pdfPage {
     width: 210mm;
-    min-height: 297mm;
+    min-height: 281mm;
     margin: 0 auto;
-    padding: 60px;
+    padding: 16mm;
     box-sizing: border-box;
-    page-break-after: always;
 
     background-image: url("./assets/Page_lining.jpg");
     background-size: cover;
+}
+
+.pdfPage:not(:last-child) {
+    page-break-after: always;
 }
 
 .page__Title {
@@ -91,4 +93,10 @@
 .page_ander span {
     display: inline-block;
     color: #BAD701;
+}
+
+@media print {
+    .pdfPage {
+        -webkit-print-color-adjust: exact;
+    }
 }

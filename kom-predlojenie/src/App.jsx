@@ -2,6 +2,7 @@ import './App.css'
 import Page1 from './component/Page1'
 import html2pdf from 'html2pdf.js'
 
+
 const items = [{
   id: 1,
   name: 'Наименование позиции',
@@ -50,18 +51,40 @@ const total = {
 
 function App() {
 
-  const generatePDF = () => {
+  const generatePDF = async () => {
     const option = {
-      margin: 0,
-      filename: 'offer.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 3 },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    margin: [0, 0, 0, 0],
+
+    filename: "offer.pdf",
+
+    image: {
+      type: "jpeg",
+      quality: 1
+    },
+
+    html2canvas: {
+      scale: window.devicePixelRatio * 2,
+      useCORS: true,
+      letterRendering: true,
+      allowTaint: true,
+      logging: false
+    },
+
+    jsPDF: {
+      unit: "mm",
+      format: "a4",
+      orientation: "portrait",
+      compress: true
+    },
+
+    pagebreak: {
+      mode: ["css", "legacy"]
     }
+  }
 
     const element = document.getElementById('pdf');
     
-    html2pdf().set(option).from(element).save("offer.pdf");
+    html2pdf().set(option).from(element).save();
   }
 
   return (

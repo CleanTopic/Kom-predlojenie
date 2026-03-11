@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.3.2",
+    "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.14.0",
+    "jspdf": "^4.2.0",
+    "puppeteer": "^24.39.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-to-print": "^3.3.0"
