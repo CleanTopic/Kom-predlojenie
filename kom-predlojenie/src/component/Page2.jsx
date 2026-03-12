@@ -1,4 +1,37 @@
 import React, { Component } from 'react'
+import { useState, useEffect } from 'react'
+
+
+
+
+function getMoreAboutItems(items) {
+
+    const [itemsInfo, setItemsInfo] = useState([]);
+
+    useEffect(() => {
+        const fetchItemsInfo = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/items/info', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ itemIds: items.map(item => item.id) })
+                });
+                const data = await response.json();
+                setItemsInfo(data);
+            } catch (error) {
+                console.error('Error fetching items info:', error);
+            }
+        };
+
+        fetchItemsInfo();
+    }, [items]);
+
+    return itemsInfo;
+}
+
+
 
 export default class Page2 extends Component (props) {
   render() {
@@ -14,7 +47,7 @@ export default class Page2 extends Component (props) {
         <table className='page_Items'>
 
             <tbody>
-                { props.more_about_items.map((item) => {
+                { getMoreAboutItems(props.items).map((item) => {
                     <tr key={item.id}>
                         <td>{item.name}</td>
                         <td>{item.coating}</td>
