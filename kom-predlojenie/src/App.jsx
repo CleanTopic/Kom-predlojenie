@@ -54,12 +54,15 @@ function App() {
   const generatePDF = async () => {
 
     const element = document.getElementById('pdf').outerHTML;
+
+    const html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="http://localhost:5173/src/App.css"><title>PDF</title></head><body>' + element + '</body></html>';
+
     const response = await fetch("http://localhost:3000/pdf/generate", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ html: element })
+    body: JSON.stringify({ html: html })
     }
     )
 
@@ -71,7 +74,7 @@ function App() {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'document.pdf';
+    a.download = 'offer.pdf';
     document.body.appendChild(a);
     a.click();
   }
