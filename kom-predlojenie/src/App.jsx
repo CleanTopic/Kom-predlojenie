@@ -52,9 +52,9 @@ const total = {
 function App() {
 
   const generatePDF = async () => {
-    
+
     const element = document.getElementById('pdf').outerHTML;
-    const response = await fetch("localhost:3000/pdf/generate", {
+    const response = await fetch("http://localhost:3000/pdf/generate", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
