@@ -55,9 +55,9 @@ function App() {
 
     const element = document.getElementById('pdf').outerHTML;
 
-    const html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="http://localhost:5173/src/App.css"><title>PDF</title></head><body>' + element + '</body></html>';
+    const html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="${process.env.REACT_APP_SERVER_URL}/src/App.css"><title>PDF</title></head><body>' + element + '</body></html>';
 
-    const response = await fetch("http://localhost:3000/pdf/generate", {
+    const response = await fetch("${process.env.SERVER_URL}/pdf/generate", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
