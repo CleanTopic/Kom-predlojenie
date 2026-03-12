@@ -52,39 +52,28 @@ const total = {
 function App() {
 
   const generatePDF = async () => {
-    const option = {
-    margin: [0, 0, 0, 0],
-
-    filename: "offer.pdf",
-
-    image: {
-      type: "jpeg",
-      quality: 1
-    },
-
-    html2canvas: {
-      scale: window.devicePixelRatio * 2,
-      useCORS: true,
-      letterRendering: true,
-      allowTaint: true,
-      logging: false
-    },
-
-    jsPDF: {
-      unit: "mm",
-      format: "a4",
-      orientation: "portrait",
-      compress: true
-    },
-
-    pagebreak: {
-      mode: ["css", "legacy"]
-    }
-  }
-
-    const element = document.getElementById('pdf');
     
-    html2pdf().set(option).from(element).save();
+    const element = document.getElementById('pdf').outerHTML;
+    const response = await fetch("localhost:3000/pdf/generate", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ html: element })
+    }
+    )
+
+    if (!response.ok) {
+      console.error('Ошибка при генерации PDF');
+    }
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'document.pdf';
+    document.body.appendChild(a);
+    a.click();
   }
 
   return (
