@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import FunnyLoader from './component/Loader';
 import ErrorPage from './component/ErrorPage';
+import Layout from './layout/Layout';
 
 
 
@@ -131,14 +132,14 @@ function App() {
 
   return (
 
-    <div>
+    <Layout>
       <div id="pdf">
         <Page1 offerInfo={itemsInfo} />
         <Page2 offerInfo={itemsInfo} />
         <Page3 manager={itemsInfo.manager} />
       </div>
       <button onClick={generatePDF}>Сгенерировать PDF</button>
-    </div>
+    </Layout>
   )
 }
 
