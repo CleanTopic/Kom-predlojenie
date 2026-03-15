@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { useState, useEffect } from 'react'
 
 
-
-
 function getMoreAboutItems(items) {
 
     const [itemsInfo, setItemsInfo] = useState([]);
@@ -11,14 +9,15 @@ function getMoreAboutItems(items) {
     useEffect(() => {
         const fetchItemsInfo = async () => {
             try {
-                const response = await fetch('http://localhost:3000/items/info', {
+                const response = await fetch('http://localhost:3000/item-info/getInfoItem', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ itemIds: items.map(item => item.id) })
+                    body: JSON.stringify({  itemIds: items.map(item => item.id) })
                 });
                 const data = await response.json();
+                console.log(data);
                 setItemsInfo(data);
             } catch (error) {
                 console.error('Error fetching items info:', error);

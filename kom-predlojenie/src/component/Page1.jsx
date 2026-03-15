@@ -2,7 +2,11 @@ import React from "react";
 
 
 
+
+
+
 const Page1 = (props) => {
+
 
     return (
         <div className="pdfPage">
@@ -39,7 +43,7 @@ const Page1 = (props) => {
 
                 <tbody>
                     <>
-                        {props.items.map((item) => (
+                        {props.itemsInfo.items.map((item) => (
                             <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td>{item.name}</td>
@@ -57,11 +61,11 @@ const Page1 = (props) => {
 
             <div className="page_ander">
                 <div className="page__Total">
-                    <strong>Итого:</strong> {props.total.quantity} позиция на сумму <span>{props.total.price}₽</span> {props.total.finalPrice}₽.
+                    <strong>Итого:</strong> {props.itemsInfo.totals.quantity} позиция на сумму <span>{props.itemsInfo.totals.price}₽</span> {props.itemsInfo.totals.finalPrice}₽.
                 </div>
 
                 <p>Цена по данному коммерческому предложению актуальна в течении трех рабочих дней.</p>
-                <p>Просим вас ознакомиться до <span className="page_dateAt">{props.total.lastDayOffer}</span></p>
+                <p>Просим вас ознакомиться до <span className="page_dateAt">{props.itemsInfo.totals.lastDayOffer}</span></p>
             </div>
         </div>
     );
