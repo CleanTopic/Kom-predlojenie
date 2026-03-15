@@ -104,7 +104,7 @@ const generatePDF = async () => {
 
 
 function App() {
-  /* Получаем из qvery запроса url*/
+  /* Получаем из query запроса url*/
   const queryParams = {
     offerUUID: '2b370497-224c-4c6a-8d41-a788c2cc028e',
     manager: 'Абобус обыкновенный',
@@ -130,6 +130,7 @@ function App() {
       <div id="pdf">
         <Page1 offerInfo={itemsInfo} />
         <Page2 offerInfo={itemsInfo} />
+        <Page3 manager={itemsInfo.manager} />
       </div>
       <button onClick={generatePDF}>Сгенерировать PDF</button>
     </div>
