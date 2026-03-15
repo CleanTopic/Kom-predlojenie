@@ -44,3 +44,6 @@ const Page3 = (props) => {
         </div>
     )
 }
+
+
+export default Page3;
