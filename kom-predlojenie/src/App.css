@@ -215,24 +215,27 @@
 
 .manager__phone::before {
     content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
     background-image: url("./assets/phone.png");
     background-repeat: no-repeat;
-    margin-right: 6px;
-    vertical-align: middle;
+    background-size: contain;
 }
+
 .manager__email::before {
     content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
     background-image: url("./assets/internet-logo.png");
     background-repeat: no-repeat;
-    margin-right: 6px;
-    vertical-align: middle;
+    background-size: contain;
 }
 
-
-
-.manager__email, .manager__phone {
+.manager__email,
+.manager__phone {
     display: flex;
     align-items: center;
     gap: 6px;
 }
-
