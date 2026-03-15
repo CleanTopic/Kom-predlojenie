@@ -23,7 +23,7 @@ export default class Page2 extends Component(props) {
                                     <div className="itemRow">
 
                                         <div className="itemImage">
-                                            <img src={item.image_url} alt={item.name} />
+                                            <img src={item.picUrl} alt={item.name} />
                                         </div>
 
                                         <div className="itemInfo">
