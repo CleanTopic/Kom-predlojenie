@@ -1,7 +1,7 @@
 import TopNavbar from "../component/TopBar";
-import Sidebar from "../component/Sidebar";
+import Sidebar from "../component/SideBar";
 
-const Layout = ({ children }) => {
+const Layout = ({ children } ) => {
   return (
     <div className="layout">
 

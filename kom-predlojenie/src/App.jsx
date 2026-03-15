@@ -7,7 +7,7 @@ import axios from "axios";
 import FunnyLoader from './component/Loader';
 import ErrorPage from './component/ErrorPage';
 import Layout from './layout/Layout';
-
+import CustomButton from "./component/My-Button";
 
 
 
@@ -132,13 +132,13 @@ function App() {
 
   return (
 
-    <Layout>
+    <Layout >
+      <CustomButton onClick={generatePDF}>Скачать PDF</CustomButton>
       <div id="pdf">
         <Page1 offerInfo={itemsInfo} />
         <Page2 offerInfo={itemsInfo} />
         <Page3 manager={itemsInfo.manager} />
       </div>
-      <button onClick={generatePDF}>Сгенерировать PDF</button>
     </Layout>
   )
 }
