@@ -1,6 +1,9 @@
 import './App.css'
 import Page1 from './component/Page1'
 import Page2 from './component/Page2'
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 
 /* 
   Функция для получения информации возвращает JSON 
@@ -40,6 +43,35 @@ import Page2 from './component/Page2'
 */
 
 
+function useItemsInfo(queryParams) {
+  const [itemsInfo, setItemsInfo] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchItemsInfo = async () => {
+      try {
+        const response = await axios.post(`http://localhost:3000/item-info/getInfoItem`, {
+          offerUUID: queryParams.offerUUID,
+          items: queryParams.items,
+        });
+        setItemsInfo(response.data);
+      } catch (error) {
+        setItemsInfo({ error: "Error fetching items info", details: error });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (loading) {
+      fetchItemsInfo();
+    }
+  }, queryParams);
+
+  return { itemsInfo, loading };
+}
+
+
+
 
 const generatePDF = async () => {
 
@@ -72,7 +104,6 @@ const generatePDF = async () => {
 
 
 function App() {
-
   /* Получаем из qvery запроса url*/
   const queryParams = {
     offerUUID: '2b370497-224c-4c6a-8d41-a788c2cc028e',
@@ -80,11 +111,24 @@ function App() {
     items: [1, 2, 3, 4, 5],
   };
 
+
+  const { itemsInfo, loading } = useItemsInfo(queryParams);
+
+  console.log(loading);
+  console.log(itemsInfo);
+
+
+  if (loading) return <div>Загрузка данных...</div>;
+
+  if (!itemsInfo.items.length) return <div>Нет данных для отображения</div>;
+
+
+
   return (
 
     <div>
       <div id="pdf">
-        <Page1 offerInfo={queryParams} />
+        <Page1 offerInfo={itemsInfo} />
         {/*<Page2 items={queryParams} />*/}
       </div>
       <button onClick={generatePDF}>Сгенерировать PDF</button>

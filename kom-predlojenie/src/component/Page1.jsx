@@ -1,29 +1,9 @@
 import React from "react";
 
-import useItemsInfo from './hooks/useItemsInfo';
-
 
 
 
 const Page1 = (props) => {
-
-    const queryParams = {
-        offerUUID: '2b370497-224c-4c6a-8d41-a788c2cc028e',
-        manager: 'Абобус обыкновенный',
-        items: [1, 2, 3, 4, 5],
-    };
-
-
-    const { itemsInfo, loading } = useItemsInfo(queryParams);
-
-    console.log(loading);
-    console.log(itemsInfo);
-
-
-    if (loading) return <div>Загрузка данных...</div>;
-
-    if (!itemsInfo.items.length) return <div>Нет данных для отображения</div>;
-
 
 
     return (
@@ -61,7 +41,7 @@ const Page1 = (props) => {
 
                 <tbody>
                     <>
-                        {itemsInfo.items.map((item) => (
+                        {props.offerInfo.items.map((item) => (
                             <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td>{item.name_1c}</td>
@@ -79,11 +59,11 @@ const Page1 = (props) => {
 
             <div className="page_ander">
                 <div className="page__Total">
-                    <strong>Итого:</strong> {itemsInfo.totals.position_quantity} позиция на сумму <span>{itemsInfo.totals.total_old_price}₽</span> {itemsInfo.totals.total_price}₽.
+                    <strong>Итого:</strong> {props.offerInfo.totals.position_quantity} позиция на сумму <span>{props.offerInfo.totals.total_old_price}₽</span> {props.offerInfo.totals.total_price}₽.
                 </div>
 
                 <p>Цена по данному коммерческому предложению актуальна в течении трех рабочих дней.</p>
-                <p>Просим вас ознакомиться до <span className="page_dateAt">{itemsInfo.totals.last_day_offer}</span></p>
+                <p>Просим вас ознакомиться до <span className="page_dateAt">{props.offerInfo.totals.last_day_offer}</span></p>
             </div>
         </div>
     );
