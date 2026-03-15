@@ -1,6 +1,7 @@
 import './App.css'
 import Page1 from './component/Page1'
 import Page2 from './component/Page2'
+import Page3 from './component/Page3'
 import { useState, useEffect } from "react";
 import axios from "axios";
 

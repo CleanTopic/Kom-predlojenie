@@ -103,12 +103,12 @@
     }
 }
 
-.itemCell{
-    display: flex;           
-    width: 50%;                
-    height: 2%;              
+.itemCell {
+    display: flex;
+    width: 50%;
+    height: 2%;
     box-sizing: border-box;
-    border: 1px solid #000;    
+    border: 1px solid #000;
     overflow: hidden;
     padding: 10px;
     position: relative
@@ -120,47 +120,47 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 50%;           
-    width: 1px;        
-    background-color: #000; 
+    left: 50%;
+    width: 1px;
+    background-color: #000;
 }
 
-.itemRow{
-    display: flex;          
-    width: 100%;           
+.itemRow {
+    display: flex;
+    width: 100%;
     padding: 10px;
-    gap: 20px;           
+    gap: 20px;
     box-sizing: border-box
 }
 
-.itemImage{
-    width: 50%;          
+.itemImage {
+    width: 50%;
     height: 100%;
     display: flex;
-    justify-content: flex-start;  
+    justify-content: flex-start;
     align-items: center;
-    padding-left: 5px; 
+    padding-left: 5px;
 }
 
-.itemImage img{
+.itemImage img {
     width: 100%;
-    height: 100%;              
+    height: 100%;
     object-fit: cover;
 }
 
-.itemInfo{
-    width: 50%;                
+.itemInfo {
+    width: 50%;
     padding: 5px 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
 }
 
-.priceBlock{
+.priceBlock {
     margin-top: 10px;
 }
 
-.table_oldPrice{
+.table_oldPrice {
     display: inline-block;
     color: gray;
     font-weight: bold;
@@ -171,13 +171,13 @@
             transparent 53%);
 }
 
-.table_newPrice{
+.table_newPrice {
     padding-left: 3mm;
     font-weight: bold;
 }
 
 
-.second-page-header{
+.second-page-header {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 40px;
@@ -185,9 +185,54 @@
 }
 
 
-.page__Manager{
-    font-size: 20px;
+.page__Manager {
+    font-size: 15px;
     font-weight: bold;
     margin-bottom: 40px;
     padding-top: 120px;
 }
+
+
+.manager__contacts {
+    display: flex;
+    flex-direction: row;
+    gap: 100mm;
+    align-items: center;
+    padding-left: 30px;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+.page__manager-Title {
+    font-size: 15px;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 40px;
+    padding-top: 120px;
+    color: #000000;
+}
+
+.manager__phone::before {
+    content: "";
+    background-image: url("./assets/phone.png");
+    background-repeat: no-repeat;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+.manager__email::before {
+    content: "";
+    background-image: url("./assets/internet-logo.png");
+    background-repeat: no-repeat;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+
+
+.manager__email, .manager__phone {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
