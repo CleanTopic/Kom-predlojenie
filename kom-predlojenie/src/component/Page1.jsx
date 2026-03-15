@@ -46,12 +46,12 @@ const Page1 = (props) => {
                         {props.itemsInfo.items.map((item) => (
                             <tr key={item.id}>
                                 <td>{item.id}</td>
-                                <td>{item.name}</td>
+                                <td>{item.name_1c}</td>
                                 <td>{item.quantity}</td>
-                                <td>{item.price}</td>
-                                <td>{item.discountPercent}</td>
-                                <td>{item.discountAmount}</td>
-                                <td>{item.finalPrice}</td>
+                                <td>{item.old_price}</td>
+                                <td>{item.discount}</td>
+                                <td>{item.discount_price}</td>
+                                <td>{item.new_price}</td>
                             </tr>
                         ))}
                     </>
@@ -61,11 +61,11 @@ const Page1 = (props) => {
 
             <div className="page_ander">
                 <div className="page__Total">
-                    <strong>Итого:</strong> {props.itemsInfo.totals.quantity} позиция на сумму <span>{props.itemsInfo.totals.price}₽</span> {props.itemsInfo.totals.finalPrice}₽.
+                    <strong>Итого:</strong> {props.itemsInfo.totals.position_quantity} позиция на сумму <span>{props.itemsInfo.totals.total_old_price}₽</span> {props.itemsInfo.totals.total_price}₽.
                 </div>
 
                 <p>Цена по данному коммерческому предложению актуальна в течении трех рабочих дней.</p>
-                <p>Просим вас ознакомиться до <span className="page_dateAt">{props.itemsInfo.totals.lastDayOffer}</span></p>
+                <p>Просим вас ознакомиться до <span className="page_dateAt">{props.itemsInfo.totals.last_day_offer}</span></p>
             </div>
         </div>
     );

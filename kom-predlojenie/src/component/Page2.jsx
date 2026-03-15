@@ -2,76 +2,56 @@ import React, { Component } from 'react'
 import { useState, useEffect } from 'react'
 
 
-function getMoreAboutItems(items) {
 
-    const [itemsInfo, setItemsInfo] = useState([]);
+export default class Page2 extends Component(props) {
+    render() {
+        return (
+            <div className='pdfPage'>
 
-    useEffect(() => {
-        const fetchItemsInfo = async () => {
-            try {
-                const response = await fetch('http://localhost:3000/item-info/getInfoItem', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({  itemIds: items.map(item => item.id) })
-                });
-                const data = await response.json();
-                console.log(data);
-                setItemsInfo(data);
-            } catch (error) {
-                console.error('Error fetching items info:', error);
-            }
-        };
+                <h1 className='second-page-header'>
 
-        fetchItemsInfo();
-    }, [items]);
+                    Подробнее о товаре:
 
-    return itemsInfo;
-}
+                </h1>
 
+                <table className="page_Items">
+                    <tbody>
+                        {props.itemInfo?.items?.map((item) => (
+                            <tr key={item.id}>
+                                <td colSpan="11" className="itemCell">
 
+                                    <div className="itemRow">
 
-export default class Page2 extends Component (props) {
-  render() {
-    return (
-      <div className='pdfPage'>
-        
-        <h1 className='second-page-header'>
+                                        <div className="itemImage">
+                                            <img src={item.image_url} alt={item.name} />
+                                        </div>
 
-            Подробнее о товаре:
+                                        <div className="itemInfo">
+                                            <p><b>{item.name}</b></p>
+                                            <p>Покрытие: {item.coating}</p>
+                                            <p>Толщина: {item.thickness}</p>
+                                            <p>Молдинг: {item.molding}</p>
+                                            <p>Размер: {item.size}</p>
+                                            <p>Цвет: {item.color}</p>
+                                            <p>Тип двери: {item.door_type}</p>
+                                            <p>Производитель: {item.manufacturer}</p>
 
-        </h1>
+                                            <div className="priceBlock">
+                                                <span className="table_oldPrice">{item.old_price}</span>
+                                                <span className="table_newPrice">{item.new_price}</span>
+                                            </div>
+                                        </div>
 
-        <table className='page_Items'>
+                                    </div>
 
-            <tbody>
-                { getMoreAboutItems(props.items).map((item) => {
-                    <tr key={item.id}>
-                        <td>{item.name}</td>
-                        <td>{item.coating}</td>
-                        <td>{item.thickness}</td>
-                        <td>{item.molding_type}</td>
-                        <td>{item.size}</td>
-                        <td>{item.color}</td>
-                        <td>{item.door_type}</td>
-                        <td>{item.brend}</td>
-
-                        <td className='table_price'>Цена:</td>
-                        <td className='table_oldPrice'>{item.oldPrice}</td>
-                        <td className='table_newPrice'>{item.price}</td>    
-                    </tr>
-                }   
-            ) }
-                
-
-            </tbody>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
 
 
-        </table>
-
-
-      </div>
-    )
-  }
+            </div>
+        )
+    }
 }
