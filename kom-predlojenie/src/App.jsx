@@ -4,6 +4,8 @@ import Page2 from './component/Page2'
 import Page3 from './component/Page3'
 import { useState, useEffect } from "react";
 import axios from "axios";
+import FunnyLoader from './component/Loader';
+
 
 
 /* 
@@ -119,7 +121,7 @@ function App() {
   console.log(itemsInfo);
 
 
-  if (loading) return <div>Загрузка данных...</div>;
+  if (loading) return <div><FunnyLoader /></div>;
 
   if (!itemsInfo.items.length) return <div>Нет данных для отображения</div>;
 
