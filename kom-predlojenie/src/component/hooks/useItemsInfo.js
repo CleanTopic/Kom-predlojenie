@@ -9,7 +9,10 @@ function useItemsInfo(queryParams) {
   useEffect(() => {
     const fetchItemsInfo = async () => {
       try {
-        const response = await axios.post(`http://localhost:3000/item-info/getInfoItem`, queryParams);
+        const response = await axios.post(`http://localhost:3000/item-info/getInfoItem`, {
+          offerUUID: queryParams.offerUUID,
+          items: queryParams.items,
+        });
         setItemsInfo(response.data);
       } catch (error) {
         setItemsInfo({ error: "Error fetching items info", details: error });
