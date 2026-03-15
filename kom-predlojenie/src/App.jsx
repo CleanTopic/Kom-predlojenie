@@ -77,9 +77,9 @@ const generatePDF = async () => {
 
   const element = document.getElementById('pdf').outerHTML;
 
-  const html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="${process.env.REACT_APP_SERVER_URL}/src/App.css"><title>PDF</title></head><body>' + element + '</body></html>';
+  const html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="http://localhost:5173/src/App.css"><title>PDF</title></head><body>' + element + '</body></html>';
 
-  const response = await fetch("${process.env.SERVER_URL}/pdf/generate", {
+  const response = await fetch("http://localhost:3000/pdf/generate", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -129,7 +129,7 @@ function App() {
     <div>
       <div id="pdf">
         <Page1 offerInfo={itemsInfo} />
-        {/*<Page2 items={queryParams} />*/}
+        <Page2 offerInfo={itemsInfo} />
       </div>
       <button onClick={generatePDF}>Сгенерировать PDF</button>
     </div>

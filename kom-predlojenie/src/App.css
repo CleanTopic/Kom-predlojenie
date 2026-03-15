@@ -104,29 +104,56 @@
 }
 
 .itemCell{
+    display: flex;           
+    width: 50%;                
+    height: 2%;              
+    box-sizing: border-box;
+    border: 1px solid #000;    
+    overflow: hidden;
     padding: 10px;
+    position: relative
+}
+
+
+.itemCell::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;           
+    width: 1px;        
+    background-color: #000; 
 }
 
 .itemRow{
-    display: flex;
-    gap: 20px;
-    align-items: center;
+    display: flex;          
+    width: 100%;           
+    padding: 10px;
+    gap: 20px;           
+    box-sizing: border-box
 }
 
 .itemImage{
-    width: 250px;
-    flex-shrink: 0;
+    width: 50%;          
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;  
+    align-items: center;
+    padding-left: 5px; 
 }
 
 .itemImage img{
     width: 100%;
-    height: auto;
+    height: 100%;              
     object-fit: cover;
-    border-radius: 6px;
 }
 
 .itemInfo{
-    flex: 1;
+    width: 50%;                
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
 }
 
 .priceBlock{
@@ -134,12 +161,25 @@
 }
 
 .table_oldPrice{
-    text-decoration: line-through;
+    display: inline-block;
     color: gray;
-    margin-right: 10px;
+    font-weight: bold;
+    background: linear-gradient(to top right,
+            transparent 47%,
+            red 48%,
+            red 52%,
+            transparent 53%);
 }
 
 .table_newPrice{
-    color: red;
+    padding-left: 3mm;
     font-weight: bold;
+}
+
+
+.second-page-header{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding-top: 120px;
 }
