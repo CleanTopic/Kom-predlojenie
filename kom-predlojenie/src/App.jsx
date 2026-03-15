@@ -5,6 +5,8 @@ import Page3 from './component/Page3'
 import { useState, useEffect } from "react";
 import axios from "axios";
 import FunnyLoader from './component/Loader';
+import ErrorPage from './component/ErrorPage';
+
 
 
 
@@ -123,7 +125,7 @@ function App() {
 
   if (loading) return <div><FunnyLoader /></div>;
 
-  if (!itemsInfo.items.length) return <div>Нет данных для отображения</div>;
+  if (!itemsInfo.items.length) return <div><ErrorPage /></div>;
 
 
 
