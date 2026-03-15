@@ -1,0 +1,17 @@
+.topNavbar {
+    height: 60px;
+    background: #F5F5F5;
+    color: white;
+    
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    align-items: flex-end;
+}
+
+.topNavbar__right{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 10px;
+}

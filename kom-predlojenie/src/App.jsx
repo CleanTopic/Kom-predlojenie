@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import FunnyLoader from './component/Loader';
 import ErrorPage from './component/ErrorPage';
-import Layout from './layout/Layout';
-import CustomButton from "./component/My-Button";
+import TopBar from './component/TopBar';
+
 
 
 
@@ -108,6 +108,22 @@ const generatePDF = async () => {
 }
 
 
+const sendMail = async () => {
+    
+  const subject = 'Торговое предложение';
+
+
+
+  const element = document.getElementById('pdf').outerHTML;
+
+  const email = "";
+  const body = element;
+  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;  
+
+}
+
+
+
 
 function App() {
   /* Получаем из query запроса url*/
@@ -129,17 +145,15 @@ function App() {
   if (!itemsInfo.items.length) return <div><ErrorPage /></div>;
 
 
-
-  return (
-
-    <Layout >
-      <CustomButton onClick={generatePDF}>Скачать PDF</CustomButton>
+  return ( 
+    <>
+      <TopBar onDownload={generatePDF} onMailSend={sendMail}/>
       <div id="pdf">
         <Page1 offerInfo={itemsInfo} />
         <Page2 offerInfo={itemsInfo} />
         <Page3 manager={itemsInfo.manager} />
       </div>
-    </Layout>
+    </>
   )
 }
 

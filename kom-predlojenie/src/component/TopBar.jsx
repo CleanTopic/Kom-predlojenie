@@ -1,15 +1,19 @@
-
+import CustomButton from "./My-Button";
 import './topBar.css';
 
-const TopNavbar = (props) => {
+const TopNavbar = ({ onDownload, onMailSend}) => {
     return (
         <div className="topNavbar">
 
             <div className="topNavbar__right">
-                
-                <button className="topNavbar__button-sendToEmail">
-                    Отправить по почте PDF
-                </button>
+
+                <CustomButton onClick={onDownload}>
+                    Скачать PDF
+                </CustomButton>
+
+                {/*CustomButton onClick={onMailSend}>
+                    Отправить по почте
+                </CustomButton>*/} 
             </div>
 
         </div>
