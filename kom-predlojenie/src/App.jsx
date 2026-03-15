@@ -1,7 +1,6 @@
 import './App.css'
 import Page1 from './component/Page1'
-
-
+import Page2 from './component/Page2'
 
 /* 
   Функция для получения информации возвращает JSON 
@@ -40,35 +39,6 @@ import Page1 from './component/Page1'
         }
 */
 
-function getMoreAboutItems(offerInfo) {
-
-  const [itemsInfo, setItemsInfo] = useState([]);
-  useEffect(() => {
-    const fetchItemsInfo = async () => {
-      try {
-        const response = await fetch('${process.env.SERVER_URL}/item-info/getInfoItem', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          /* Отправляем на сервер запрос с UUID заказа, полученным при открытии страницы, а так же массивом индексов товара */
-          body: JSON.stringify({ offerUUID: offerInfo.uuid, itemIds: offerInfo.items.map(item => item.id) })
-        });
-        const data = await response.json();
-        console.log(data);
-        setItemsInfo(data);
-      } catch (error) {
-        console.error('Error fetching items info:', error);
-      }
-    };
-
-    fetchItemsInfo();
-  }, [items]);
-
-  return itemsInfo;
-}
-
-
 
 
 const generatePDF = async () => {
@@ -104,23 +74,18 @@ const generatePDF = async () => {
 function App() {
 
   /* Получаем из qvery запроса url*/
-  const offerInfo = {
+  const queryParams = {
     offerUUID: '2b370497-224c-4c6a-8d41-a788c2cc028e',
     manager: 'Абобус обыкновенный',
     items: [1, 2, 3, 4, 5],
   };
 
-
-  const itemInfo = getMoreAboutItems(offerInfo);
-
-
-
   return (
 
     <div>
       <div id="pdf">
-        <Page1 offerInfo={itemInfo} />
-        <Page2 items={itemInfo} />
+        <Page1 offerInfo={queryParams} />
+        {/*<Page2 items={queryParams} />*/}
       </div>
       <button onClick={generatePDF}>Сгенерировать PDF</button>
     </div>
